@@ -13,7 +13,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     
     var items = [ChecklistItem]()
-    //var checklist: Checklist!
+    var checklist: Checklist!
     
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         //Load items
         loadChecklistItems()
         
-        //title = checklist.name
+        title = checklist.name
         
         
     }
