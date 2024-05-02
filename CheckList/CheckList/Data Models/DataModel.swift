@@ -25,6 +25,20 @@ class DataModel {
         handleFirstTime()
     }
     
+    
+    /* This method gets the current ChecklistItemID value from UserDefaults, adds 1 to it
+    and writes it back to UserDefaults. It returns the previous value to the caller */
+    class func nextChecklistItemID() -> Int {
+       /* The inclusion of the class keyword in the method name indicates a class metho -
+        this kind of method applies to the class as a whole. The instance method, instead, works only on a specific instance of that class. */
+        
+        let userDefaults = UserDefaults.standard
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        
+        return itemID
+    }
+    
     func sortChecklists() {
         lists.sort {list1, list2 in
             return list1.name.localizedStandardCompare(list2.name) == .orderedAscending
